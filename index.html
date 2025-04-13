@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajun - Ethical Hacker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-brand"></div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="name-display">
+                <h1 class="main-name">Prajun</h1>
+            </div>
+            <div class="hero-text">
+                <h1>Ethical Hacker & Cybersecurity Enthusiast</h1>
+                <p class="hero-subtitle">Securing the digital world, one system at a time</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn primary">Get in Touch</a>
+                    <a href="#about" class="btn secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>I am a passionate ethical hacker and cybersecurity professional dedicated to protecting digital assets and ensuring secure systems. With years of experience in penetration testing, vulnerability assessment, and security consulting, I help organizations strengthen their security posture.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Penetration Testing</h3>
+                <p>Comprehensive security assessments and vulnerability identification</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-lock"></i>
+                <h3>Security Analysis</h3>
+                <p>In-depth analysis of security systems and protocols</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Secure Development</h3>
+                <p>Building secure applications and systems</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Get in Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="email-container">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:emailaddress.gmail.com">emailaddress.gmail.com</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/yourprofile" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/yourprofile" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Igris. All rights reserved.</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="particles.js"></script>
+    <script>
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        const body = document.querySelector('body');
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.pageX;
+            mouseY = e.pageY;
+
+            // Update cursor position directly
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+            
+            // Update follower with delay
+            setTimeout(() => {
+                cursorFollower.style.left = mouseX + 'px';
+                cursorFollower.style.top = mouseY + 'px';
+            }, 50);
+
+            // Calculate website movement based on mouse position relative to viewport
+            const moveX = (e.clientX - window.innerWidth / 2) / 40;
+            const moveY = (e.clientY - window.innerHeight / 2) / 40;
+
+            // Apply smooth movement to body
+            requestAnimationFrame(() => {
+                body.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'scale(0.8)';
+            body.style.transform += ' scale(0.98)';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'scale(1)';
+            body.style.transform = body.style.transform.replace(' scale(0.98)', '');
+        });
+    </script>
+</body>
+</html>
